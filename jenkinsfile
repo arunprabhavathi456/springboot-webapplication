@@ -1,0 +1,14 @@
+pipeline {
+    agent any
+    stages {
+        stage( "clone code"){
+            steps{
+                git credentialsID: 'git_credentials', url: '' 
+            }
+        }
+        stage( "build code"){
+            steps{
+               sh " mvn clean install "
+            }
+        }
+    }    
