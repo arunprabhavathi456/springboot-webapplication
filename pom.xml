@@ -15,6 +15,7 @@
 	</distributionManagement>
 	<dependencies>
 		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+		<!-- demo github webhooks -->
 		<dependency>
    		 <groupId>mysql</groupId>
    		 <artifactId>mysql-connector-java</artifactId>
