@@ -54,23 +54,12 @@ pipeline{
                         
                         sh 'mvn clean package sonar:sonar'
                     }
-                   }
-                    
                 }
+                    
             }
-            stage('Quality Gate status') {
-                
-               steps {
-                   
-                   script{
-                                  
-                           waitForQualityGate abortPipeline: false, credentialsId: 'sonarqube_token3'
-                    }
-                    
-                }
-           }
-        
+            
      }
+          
     
 }
         
