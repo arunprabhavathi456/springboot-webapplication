@@ -11,6 +11,12 @@ pipeline{
                     git branch: 'main', url: 'https://github.com/arunprabhavathi456/springboot-webapplication.git'
                 }
            }
+         stage('UNIT Testing'){
+            
+            steps{
+               sh 'mvn test'
+                }
+           }
       }
  }
       
