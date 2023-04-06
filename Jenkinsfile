@@ -66,9 +66,13 @@ pipeline{
                         
                         waitForQualityGate abortPipeline: false, credentialsId: 'sonarqube-token2'
                     }
+                    
                 }
-            }
-        }
+           }
+        
+     }
+    
+}
         
 
           
