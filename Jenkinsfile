@@ -34,20 +34,22 @@ pipeline{
             steps{
                  withSonarQubeEnv('sonarqube-8.9.1') {
                 sh "mvn sonar:sonar"
-                 }
              }
-            stage('Static code analysis'){
+        }
+     }
+ }
+     stage('Static code analysis'){
             
             steps{
                 
-                scripts{
-                    
+                              
                 waitForQualityGate abortPipeline: false, credentialsId: 'sonarqube-token2'
-                 }
-             }
-         }
-    }
-}
+           }
+       }
+ }
+ 
+          
+         
      
       
                     
