@@ -46,11 +46,11 @@ pipeline{
           }
     
       }
-        stage('upload war file to jfrog'){
+        stage('Server'){
             
             steps{
                                                    
-               no public field ‘deployer’ (or getter method) found in class org.jfrog.hudson.pipeline.scripted.steps.DeployStep
+               rtserver
             }
         
        }
