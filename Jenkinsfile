@@ -39,6 +39,9 @@ pipeline{
             stage('Static code analysis'){
             
             steps{
+                
+                scripts{
+                    
                 waitForQualityGate abortPipeline: false, credentialsId: 'sonarqube-token2'
                  }
              }
