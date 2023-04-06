@@ -36,9 +36,15 @@ pipeline{
                 sh "mvn sonar:sonar"
                  }
              }
+            stage('Static code analysis'){
+            
+            steps{
+                waitForQualityGate abortPipeline: false, credentialsId: 'sonarqube-token2'
+                 }
+             }
          }
     }
-}
+     
       
                     
             
