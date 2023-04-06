@@ -58,13 +58,13 @@ pipeline{
                     
                 }
             }
-            stage("Quality Gate") {
+            stage('Quality Gate status') {
                 
                steps {
                    
+                   script{
                                   
-              timeout(time: 1, unit: 'HOURS') {
-              waitForQualityGate abortPipeline: false, credentialsId: 'sonarqube_token3'
+                           waitForQualityGate abortPipeline: false, credentialsId: 'sonarqube_token3'
                     }
                     
                 }
