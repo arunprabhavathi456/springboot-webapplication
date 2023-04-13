@@ -54,7 +54,7 @@ pipeline{
             
             steps{
                                                    
-               sh 'docker build -t arunprabhavathi456/arun_text:latest'
+               sh 'docker build -t arunprabhavathi456/node:latest'
             }
         
        }
