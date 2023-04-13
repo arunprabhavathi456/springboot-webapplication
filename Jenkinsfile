@@ -84,10 +84,12 @@ pipeline{
                sh 'docker logout'
             }
         
-       }
+         }
                               
-   } 
+      } 
     
+   }
+
 }
         
 
