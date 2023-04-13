@@ -19,7 +19,7 @@ pipeline{
           }
         
     }
-      stage('UNIT Testing'){
+      stage('Unit testing'){
             
             steps{
                                                    
