@@ -74,7 +74,8 @@ pipeline{
             }
         
        }
-       post  {
+        
+       post {
             
             always {
                                                    
