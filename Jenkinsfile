@@ -54,11 +54,34 @@ pipeline{
             
             steps{
                                                    
-               sh 'docker build -t arunprabhavathi456/arunprabhavathi456/arun_text:latest.'
+               sh 'docker build -t arunprabhavathi456/arun_text:latest'
             }
         
        }
-       
+          stage('Login'){
+            
+            steps{
+                                                   
+               sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+            }
+        
+       }
+       stage('Push'){
+            
+            steps{
+                                                   
+               sh 'docker push 'arunprabhavathi456/arun_text:latest'
+            }
+        
+       }
+        post {
+            
+            always {
+                                                   
+               sh 'docker logout'
+            }
+        
+       }
                               
    } 
     
