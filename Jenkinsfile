@@ -3,7 +3,9 @@ pipeline{
     agent any 
     
     environment {
-        DOCKERHUB_CREDENTIALS=credentials('Dockerhub')
+        dockerimagename = "arunprabhavathi456/arunshop1"
+        dockerIMage = ""
+
     }
     
     stages {
@@ -15,6 +17,8 @@ pipeline{
                     git branch: 'main', url: 'https://github.com/arunprabhavathi456/springboot-webapplication.git'
                 }
           }
+        
+    }
       stage('UNIT Testing'){
             
             steps{
@@ -50,43 +54,34 @@ pipeline{
           }
     
       }
-        stage('Build'){
+        stage('Build image'){
             
             steps{
                                                    
-               sh 'docker build -t arunprabhavathi456/node:latest'
+               dockerImage = docker.build dockerimagename
             }
         
        }
-          stage('Login'){
+          
+       stage('Pushing image'){
             
-            steps{
+           environment {
                                                    
-               sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+               registryCredential = 'Dockerhub'
             }
+           
+           steps{
+               docker.withRegistry( 'https://registry.hub.docker.com', registryCredential) {
+                   dockerImage.push("latest")
         
-       }
-       stage('Push'){
-            
-            steps{
-                                                   
-               sh 'docker push arunprabhavathi456/arun_text:latest'
-            }
+           }
         
        }
         
+             
     }
-        
-       post {
-            
-            always {
-                                                   
-               sh 'docker logout'
-            }
-        
-         }
                               
-      } 
+ }
     
   
         
