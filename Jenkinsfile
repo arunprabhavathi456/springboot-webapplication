@@ -2,6 +2,10 @@ pipeline{
     
     agent any 
     
+    environment {
+        DOCKERHUB_CREDENTIALS=credentials('Dockerhub')
+    }
+    
     stages {
         
         stage('Git Checkout'){
@@ -46,16 +50,16 @@ pipeline{
           }
     
       }
-        stage('Server'){
+        stage('Build'){
             
             steps{
                                                    
-               rtserver
+               sh 'docker build -t arunprabhavathi456/springboot-webapplication:latest .'
             }
         
        }
-        
-        
+       
+                              
    } 
     
 }
