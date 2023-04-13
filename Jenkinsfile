@@ -70,7 +70,7 @@ pipeline{
             
             steps{
                                                    
-               sh 'docker push 'arunprabhavathi456/arun_text:latest'
+               sh 'docker push arunprabhavathi456/arun_text:latest'
             }
         
        }
