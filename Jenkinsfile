@@ -12,6 +12,15 @@ pipeline {
 	echo 'Git Checkout Completed'            
       }        
     }
+       stage('maven build'){
+            
+         steps{
+                sh "mvn clean install"                             
+                     
+             }
+        
+          }
+	  
     stage('Build Docker Image') {         
       steps{                
 	sh 'sudo docker build -t arunprabhavathi456/arun_text:tagname .'           
