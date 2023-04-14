@@ -10,6 +10,7 @@ pipeline{
             steps{
                                                    
                     git branch: 'main', url: 'https://github.com/arunprabhavathi456/springboot-webapplication.git'
+                    echo 'Git Checkout Completed'   
                 }
           }
         
