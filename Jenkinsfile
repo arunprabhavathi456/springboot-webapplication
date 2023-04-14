@@ -1,12 +1,7 @@
 pipeline{
     
     agent any 
-    
-    environment {
-        dockerimagename = "arunprabhavathi456/arunshop1"
-        dockerIMage = ""
 
-    }
     
     stages {
         
@@ -18,68 +13,6 @@ pipeline{
                 }
           }
         
-        stage('Unit testing'){
-            
-            steps{
-                                                   
-                    sh 'mvn test'
-            }
-        
-       }
-        stage('Integration testing'){
-            
-            steps{
-                                                   
-                    sh 'mvn verify -DskipUnitTests'
-            }
-        
-       }
-        stage('Maven Build'){
-            
-            steps{
-                                                   
-                      sh 'mvn clean install'
-            }
-        
-       }
-        stage('Static code analysis'){
-            
-            steps{
-                withSonarQubeEnv('sonarqube-8.9.1') {
-                sh "mvn sonar:sonar"                             
-                     
-             }
-        
-          }
-    
-      }
-        stage('Build image'){
-            
-            steps{
-                                                   
-              dockerImage = docker.build dockerimagename
-            }
-        
-       }
-          
-       stage('Pushing image'){
-            
-           steps{
-                                                   
-               registryCredential = 'Dockerhub'
-            }
-           
-           steps{
-               docker.withRegistry( 'https://registry.hub.docker.com', registryCredential) {
-                   dockerImage.push("latest")
-        
-           }
-        
-       }
-        
-             
     }
-                              
-  }
     
-}
+}    
