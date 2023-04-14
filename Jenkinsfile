@@ -15,11 +15,11 @@ pipeline{
           }
         stage('Build Docker Image') {  
     steps{                     
-	sh 'sudo docker build -t arunprabhavathi456/arunshop1:$101 .'     
+	sh 'sudo docker build -t arunprabhavathi456/arunshop1:latest .'     
 	echo 'Build Image Completed'                
-    }           
-} 
+       }           
+    } 
         
-    }
+  }
     
 }    
