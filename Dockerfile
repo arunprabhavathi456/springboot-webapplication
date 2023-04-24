@@ -1,4 +1,4 @@
 FROM tomcat
 USER root
-COPY  ProjectDockerImage.war /usr/local/tomcat/webapps/
+COPY  mavewebappdemo-1.0.0-SNAPSHOT.war /usr/local/tomcat/webapps/
 CMD ["catalina.sh","run"]
